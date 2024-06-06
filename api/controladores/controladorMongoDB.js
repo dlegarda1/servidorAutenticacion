@@ -11,8 +11,8 @@ const usuarioNuevo = async (req, res) => {
     try {
         const { name,username, password, rol, email } = req.body;
         console.log(name,username, password, rol, email);
-        if (!username || !password || !rol) {
-            return res.status(400).json({ error: 'Se requiere nombre y edad del usuario' });
+        if (!username ||!email ||!password || !rol) {
+            return res.status(400).json({ error: 'Se requieren datos del usuario' });
         }
         const usuario = new Usuario({ name,username, password, rol, email });
         await usuario.save();

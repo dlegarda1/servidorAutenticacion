@@ -51,8 +51,9 @@ app.use('/basedatos', TokenDB.verificacionTokenCookieDB, rutasMongoDB);
 
 //ruta normal para registro de nuevos usuarios
 app.use('/acceso', rutasMongoDB);
+
 //conexión base de datos MongoDB
-const { MongoClient, ServerApiVersion } = require('mongodb');
+/*const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://diegotecnoacademia:anaisabel2719@basedatos.6l7ekgh.mongodb.net/?retryWrites=true&w=majority&appName=BaseDatos";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -77,7 +78,9 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
+*/
+//conexión base de datos MongoDB
+connectDB();
 //***************************************************** */
 //    Método para enviar script en cookie
 // Endpoint para enviar el script en una cookie
@@ -142,6 +145,8 @@ app.post('/upload/documento', upload.single('document'), (req, res) => {
 
 // Servir documentos estáticas
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 
 
 // Iniciar el servidor
