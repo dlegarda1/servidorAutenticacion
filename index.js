@@ -1,12 +1,12 @@
 const express = require('express');
 //const autenticacion = require('./Intermediarios/autenticacion.js'); 
-const autenticarDB = require('./Intermediarios/autenticacionDB.js');
-const connectDB = require('./BaseDatos/conexionmongoDB');
+const autenticarDB = require('./api/Intermediarios/autenticacionDB.js');
+const connectDB = require('./api/BaseDatos/conexionmongoDB');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const rutasMongoDB = require('./rutas/rutasMongoDB');
+const rutasMongoDB = require('./api/rutas/rutasMongoDB');
 //const Token = require('./Intermediarios/token.js');
-const TokenDB = require('./Intermediarios/tokenDB.js');
+const TokenDB = require('./api/Intermediarios/tokenDB.js');
 const multer = require('multer');
 const path = require('path');
 
