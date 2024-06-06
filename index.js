@@ -21,12 +21,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:5173']
+  origin: ['http://localhost:5173','https://ejemplodesplieguereact.vercel.app'],  
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }))
 app.use(cookieParser());
 
 // Rutas
-
+app.get('/',(req,res)=>{
+  res.send('Hola mundo');
+})
 app.get('/home', async (req, res) => {
   res.cookie('seraCookie', 'token', { secure: true, sameSite: 'None', maxAge: 3600000 });
   res.send('cookie enviada');
