@@ -9,6 +9,7 @@ const rutasMongoDB = require('./api/rutas/rutasMongoDB.js');
 const TokenDB = require('./api/Intermediarios/tokenDB.js');
 const multer = require('multer');
 const path = require('path');
+require('dotenv').config();
 
 
 const router = express.Router();
