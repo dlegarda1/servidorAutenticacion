@@ -1,12 +1,12 @@
 const express = require('express');
 //const autenticacion = require('./Intermediarios/autenticacion.js'); 
-const autenticarDB = require('./Intermediarios/autenticacionDB.js');
-const connectDB = require('./BaseDatos/conexionmongoDB');
+const autenticarDB = require('./api/Intermediarios/autenticacionDB.js');
+const connectDB = require('./api/BaseDatos/conexionmongoDB.js');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const rutasMongoDB = require('./rutas/rutasMongoDB');
+const rutasMongoDB = require('./api/rutas/rutasMongoDB.js');
 //const Token = require('./Intermediarios/token.js');
-const TokenDB = require('./Intermediarios/tokenDB.js');
+const TokenDB = require('./api/Intermediarios/tokenDB.js');
 const multer = require('multer');
 const path = require('path');
 
@@ -78,9 +78,9 @@ app.get('/envioScript', (req, res) => {
 // Endpoint para recibir el número de clicks
 app.post('/recepcionInfo', (req, res) => {
   const contador = req.body.contador;
-  const  clickCount = req.cookies.cookieInfo;  
+  const clickCount = req.cookies.cookieInfo;
   console.log('Número de clicks recibidos:', clickCount);
-  console.log('Número de clicks recibidos en el body',  contador);
+  console.log('Número de clicks recibidos en el body', contador);
   res.send('Número de clicks recibidos.');
 });
 

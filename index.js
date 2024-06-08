@@ -1,10 +1,10 @@
 const express = require('express');
 //const autenticacion = require('./Intermediarios/autenticacion.js'); 
 const autenticarDB = require('./api/Intermediarios/autenticacionDB.js');
-const connectDB = require('./api/BaseDatos/conexionmongoDB');
+const connectDB = require('./api/BaseDatos/conexionmongoDB.js');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const rutasMongoDB = require('./api/rutas/rutasMongoDB');
+const rutasMongoDB = require('./api/rutas/rutasMongoDB.js');
 //const Token = require('./Intermediarios/token.js');
 const TokenDB = require('./api/Intermediarios/tokenDB.js');
 const multer = require('multer');
@@ -21,14 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:5173','https://ejemplodesplieguereact.vercel.app'],  
+  origin: ['http://localhost:5173', 'https://ejemplodesplieguereact.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }))
 app.use(cookieParser());
 
 // Rutas
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
   res.send('Hola mundo');
 })
 app.get('/home', async (req, res) => {
